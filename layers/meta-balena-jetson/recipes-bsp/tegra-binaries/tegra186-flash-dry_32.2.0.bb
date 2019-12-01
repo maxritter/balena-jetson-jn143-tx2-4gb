@@ -31,6 +31,7 @@ KERNEL_DEVICETREE_n510-tx2 = "${DEPLOY_DIR_IMAGE}/tegra186-quill-p3310-1000-c03-
 KERNEL_DEVICETREE_spacely-tx2 = "${DEPLOY_DIR_IMAGE}/tegra186-tx2-cti-ASG006-IMX274-6CAM.dtb"
 KERNEL_DEVICETREE_srd3-tx2 = "${DEPLOY_DIR_IMAGE}/d3-tx2-rsp-fpdlink.dtb"
 KERNEL_DEVICETREE_blackboard-tx2 = "${DEPLOY_DIR_IMAGE}/tegra186-tx2-blackboard.dtb"
+KERNEL_DEVICETREE_jn143-tx2 = "${DEPLOY_DIR_IMAGE}/tegra186-quill-p3489-0888-a00-00-base.dtb"
 
 LNXFILE="u-boot-dtb.bin"
 IMAGE_TEGRAFLASH_KERNEL="${DEPLOY_DIR_IMAGE}/${LNXFILE}"
@@ -70,7 +71,7 @@ BINS="mb2_bootloader nvtboot_recovery.bin; \
 mts_preboot preboot_d15_prod_cr.bin; \
 mts_bootpack mce_mts_d15_prod_cr.bin; \
 bpmp_fw bpmp.bin; \
-bpmp_fw_dtb tegra186-a02-bpmp-quill-p3310-1000-c04-00-te770d-ucm2.dtb; \
+bpmp_fw_dtb tegra186-a02-bpmp-lightning-p3489-a00-00-te770m.dtb; \
 tlk tos-mon-only.img; \
 eks eks.img; \
 bootloader_dtb $DTBFILE;"
@@ -145,13 +146,13 @@ do_configure() {
     --cfg flash.xml.in \
     --chip 0x18 \
     --misc_config tegra186-mb1-bct-misc-si-l4t.cfg \
-    --pinmux_config tegra186-mb1-bct-pinmux-quill-p3310-1000-c03.cfg \
-    --pmic_config tegra186-mb1-bct-pmic-quill-p3310-1000-c04.cfg \
-    --pmc_config tegra186-mb1-bct-pad-quill-p3310-1000-c03.cfg \
-    --prod_config tegra186-mb1-bct-prod-quill-p3310-1000-c03.cfg \
+    --pinmux_config tegra186-mb1-bct-pinmux-quill-p3489-1000-a00.cfg \
+    --pmic_config tegra186-mb1-bct-pmic-lightning-p3489-1000-a00.cfg \
+    --pmc_config tegra186-mb1-bct-pad-quill-p3489-1000-a00.cfg \
+    --prod_config tegra186-mb1-bct-prod-storm-p3489-1000-a00.cfg \
     --scr_config minimal_scr.cfg \
     --scr_cold_boot_config mobile_scr.cfg \
-    --br_cmd_config tegra186-mb1-bct-bootrom-quill-p3310-1000-c03.cfg \
+    --br_cmd_config tegra186-mb1-bct-bootrom-quill-p3489-1000-a00.cfg \
     --dev_params emmc.cfg \
     --keep --skipuid  & \
         export _PID=$! ; wait ${_PID} || true

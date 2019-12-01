@@ -31,6 +31,7 @@ SRC_URI_append_jetson-tx2 = " \
     file://0005-NFLX-2019-001-Resour-Consump-Low-MSS.patch \
     file://0006-NFLX-2019-001-Resour-Consump-Low-MSS.patch \
     file://0001-mttcan_ivc-Fix-build-failure-with-kernel-4.9.patch \
+    file://tegra186-quill-p3489-0888-a00-00-base.dtb \
 "
 
 SRC_URI_append_jn30b-nano = " \
@@ -188,6 +189,10 @@ do_deploy_append_srd3-tx2() {
 
 do_deploy_append_blackboard-tx2() {
     cp ${WORKDIR}/tegra186-tx2-blackboard.dtb "${DEPLOYDIR}"
+}
+
+do_deploy_append_jn143-tx2() {
+    cp ${WORKDIR}/tegra186-quill-p3489-0888-a00-00-base.dtb "${DEPLOYDIR}"
 }
 
 do_deploy_append_jn30b-nano() {
